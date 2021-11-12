@@ -8,7 +8,7 @@ This open source project helps systems get up to date real time exchange rates f
 
 This project will include:
 
--   Get currency by 3-digit currency code according to (ISO 4217)(https://en.wikipedia.org/wiki/ISO_4217)
+-   Get currency by 3-digit currency code according to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
 
 # Prerequisites
 
