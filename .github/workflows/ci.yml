@@ -21,3 +21,13 @@ jobs:
                   node-version: ${{ matrix.node-version }}
             - name: Install dependencies
               run: npm ci
+              env:
+                  ENVIRONMENT: ${{secrets.ENVIRONMENT}}
+                  DEVELOPER: ${{secrets.DEVELOPER}}
+                  PORT: ${{secrets.PORT}}
+            - name: Test all test cases
+              run: npm run test --coverage
+              env:
+                  ENVIRONMENT: ${{secrets.ENVIRONMENT}}
+                  DEVELOPER: ${{secrets.DEVELOPER}}
+                  PORT: ${{secrets.PORT}}
