@@ -12,6 +12,7 @@ module.exports = {
         'no-empty-function': 'error',
         'no-lone-blocks': 'error',
         'no-unused-labels': 'error',
+        'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
         'require-await': 'error',
         curly: 'error',
         'no-use-before-define': 'error',

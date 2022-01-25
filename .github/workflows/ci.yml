@@ -25,6 +25,8 @@ jobs:
                   ENVIRONMENT: ${{secrets.ENVIRONMENT}}
                   DEVELOPER: ${{secrets.DEVELOPER}}
                   PORT: ${{secrets.PORT}}
+            - name: Check Lint
+              run: npm run lint
             - name: Test all test cases
               run: npm run test --coverage
               env:

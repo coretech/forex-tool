@@ -1,5 +1,7 @@
 # Forex Tool
 
+[![Coverage Status](https://coveralls.io/repos/github/LeafGlobalFintech/forex-tool/badge.svg?branch=develop)](https://coveralls.io/github/LeafGlobalFintech/forex-tool?branch=develop)
+
 This open source project helps systems get up to date real time exchange rates from any currency they might support
 
 [Check out our documentation](https://leafglobalfintech.github.io/docs/forex-docs/project-intro/intro/)
