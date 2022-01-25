@@ -3,37 +3,23 @@ on: ['push', 'pull_request']
 name: Test Coveralls
 
 jobs:
-    test:
-        name: Test
+    build:
+        name: Build
         runs-on: ubuntu-latest
-
-        strategy:
-            matrix:
-                node-version: [15.x, 16.x, 17.x]
-
         steps:
-            - uses: actions/checkout@master
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@master
+            - uses: actions/checkout@v1
+
+            - name: Use Node.js 16.x
+              uses: actions/setup-node@v1
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version: 16.x
 
             - name: npm install, make test-coverage
               run: |
                   npm install
                   make test-coverage
 
-            - name: Coveralls GitHub Action
+            - name: Coveralls
               uses: coverallsapp/github-action@master
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
-
-finish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-        - name: Coveralls Finished
-          uses: coverallsapp/github-action@master
-          with:
-              github-token: ${{ secrets.GITHUB_TOKEN }}
-              parallel-finished: true
