@@ -2,6 +2,8 @@
 
 This open source project helps systems get up to date real time exchange rates from any currency they might support
 
+[Check out our documentation](https://leafglobalfintech.github.io/docs/forex-docs/project-intro/intro/)
+
 [Check out our website](https://leafglobalfintech.com)
 
 # Get Started
