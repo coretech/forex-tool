@@ -18,6 +18,10 @@ jobs:
               run: |
                   npm install
                   npm run test-cov
+              env:
+                  ENVIRONMENT: ${{secrets.ENVIRONMENT}}
+                  DEVELOPER: ${{secrets.DEVELOPER}}
+                  PORT: ${{secrets.PORT}}
 
             - name: Coveralls
               uses: coverallsapp/github-action@master
