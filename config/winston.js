@@ -1,9 +1,6 @@
 const { loggers, format, transports } = require('winston');
 
 const { DEVELOPER } = process.env;
-if (!DEVELOPER) {
-    throw new Error('No environment found');
-}
 
 const log = loggers.add('forex-tool-server', {
     format: format.combine(
