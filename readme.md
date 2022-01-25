@@ -57,4 +57,4 @@ Example: feat&fix: added readme file, fixed typo in readme file
 
 # Contributing
 
-If you want to contribute to the project, check out our [Contribution Guidelines](https://github.com/LeafGlobalFintech/forex-tool/blob/develop/CONTRIBUTING.md)
+If you want to contribute to the project, check out our [Contribution Guidelines](https://leafglobalfintech.github.io/docs/forex-docs/contribute/contribiting/)
