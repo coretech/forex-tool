@@ -1,0 +1,39 @@
+on: ['push', 'pull_request']
+
+name: Test Coveralls
+
+jobs:
+    test:
+        name: Test
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [15.x, 16.x, 17.x]
+
+        steps:
+            - uses: actions/checkout@master
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@master
+              with:
+                  node-version: ${{ matrix.node-version }}
+
+            - name: npm install, make test-coverage
+              run: |
+                  npm install
+                  make test-coverage
+
+            - name: Coveralls GitHub Action
+              uses: coverallsapp/github-action@master
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+
+finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+        - name: Coveralls Finished
+          uses: coverallsapp/github-action@master
+          with:
+              github-token: ${{ secrets.GITHUB_TOKEN }}
+              parallel-finished: true
