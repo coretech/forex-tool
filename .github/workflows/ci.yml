@@ -52,6 +52,7 @@ jobs:
                   repo_token: ${{ secrets.REPO_TOKEN }}
                   flag-name: ${{ matrix.node-version }}
                   parallel: true
+                  path-to-lcov: ./coverage/lcov.info
 
     finish:
         needs: test
@@ -63,3 +64,4 @@ jobs:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   repo_token: ${{ secrets.REPO_TOKEN }}
                   parallel-finished: true
+                  path-to-lcov: ./coverage/lcov.info
