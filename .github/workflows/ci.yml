@@ -33,3 +33,25 @@ jobs:
                   ENVIRONMENT: ${{secrets.ENVIRONMENT}}
                   DEVELOPER: ${{secrets.DEVELOPER}}
                   PORT: ${{secrets.PORT}}
+            - name: Run tests
+              run: npm run test-cov
+              env:
+                  ENVIRONMENT: ${{secrets.ENVIRONMENT}}
+                  DEVELOPER: ${{secrets.DEVELOPER}}
+                  PORT: ${{secrets.PORT}}
+            - name: Coveralls
+              uses: coverallsapp/github-action@master
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  flag-name: ${{ matrix.node-version }}
+                  parallel: true
+
+    finish:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: Coveralls Finished
+              uses: coverallsapp/github-action@master
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  parallel-finished: true
