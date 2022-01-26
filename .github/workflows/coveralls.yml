@@ -1,31 +1,31 @@
-# on: ['push', 'pull_request']
+on: ['push', 'pull_request']
 
-# name: Test Coveralls
+name: Test Coveralls
 
-# jobs:
-#     build:
-#         name: Build
-#         runs-on: ubuntu-latest
-#         steps:
-#             - uses: actions/checkout@v1
+jobs:
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
 
-#             - name: Use Node.js 16.x
-#               uses: actions/setup-node@v1
-#               with:
-#                   node-version: 16.x
+            - name: Use Node.js 16.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 16.x
 
-#             - name: npm install, make test-coverage
-#               run: |
-#                   npm install
-#                   npm run test-cov
-#               env:
-#                   ENVIRONMENT: ${{secrets.ENVIRONMENT}}
-#                   DEVELOPER: ${{secrets.DEVELOPER}}
-#                   PORT: ${{secrets.PORT}}
-#                   repo_token: ${{ secrets.REPO_TOKEN }}
+            - name: Install depenedencies and test
+              run: |
+                  npm ci
+                  npm run test-cov
+              env:
+                  ENVIRONMENT: ${{secrets.ENVIRONMENT}}
+                  DEVELOPER: ${{secrets.DEVELOPER}}
+                  PORT: ${{secrets.PORT}}
 
-#             - name: Coveralls
-#               uses: coverallsapp/github-action@master
-#               with:
-#                   github-token: ${{ secrets.GITHUB_TOKEN }}
-#                   repo_token: ${{ secrets.REPO_TOKEN }}
+            - name: Coveralls
+              uses: coverallsapp/github-action@master
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  repo_token: ${{ secrets.REPO_TOKEN }}
+                  path-to-lcov: ./coverage/lcov.info
