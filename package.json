@@ -8,7 +8,7 @@
         "dev": "nodemon index.js",
         "lint": "eslint --ext .js ./",
         "test": "jest",
-        "test-cov": "jest --coverage && coveralls < coverage/lcov.info"
+        "test-cov": "jest --coverage"
     },
     "repository": {
         "type": "git",
