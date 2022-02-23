@@ -14,16 +14,13 @@ jobs:
               with:
                   node-version: 16.x
 
-            - name: Install depenedencies and test
-              run: |
-                  npm ci
-                  npm run test-cov
-              env:
-                  ENVIRONMENT: ${{secrets.ENVIRONMENT}}
-                  DEVELOPER: ${{secrets.DEVELOPER}}
-                  PORT: ${{secrets.PORT}}
+            - name: Install depenedencies
+              run: npm ci
+
+            - name: Run tests
+              run: npm run test-cov
 
             - name: Coveralls
               uses: coverallsapp/github-action@master
               with:
-                  repo_token: ${{ secrets.REPO_TOKEN }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
